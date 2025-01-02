@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template, jsonify, abort, url_for
 import pandas as pd
 import os
+import urllib.parse
+from werkzeug.routing import BaseConverter
 
 # Initialize Flask app with explicit static configuration
 app = Flask(__name__, static_url_path='/static', static_folder='static')
@@ -30,6 +32,17 @@ def check_dataset():
     """
     if data is None and request.endpoint != 'main_home':
         abort(503, description="Dataset is unavailable. Please try again later.")
+
+# Custom URL converter to handle food item names with special characters
+class ItemNameConverter(BaseConverter):
+    def to_python(self, value):
+        return urllib.parse.unquote(value)  # Decode URL-encoded characters
+
+    def to_url(self, value):
+        return urllib.parse.quote(value)  # Encode characters when generating URLs
+
+# Register the converter
+app.url_map.converters['item'] = ItemNameConverter
 
 @app.route('/')
 def main_home():
@@ -89,12 +102,14 @@ def search():
 def about():
     return render_template('about/about.html')
 
-@app.route('/details/<string:item_name>')
+@app.route('/details/<item:item_name>')
 def item_details(item_name):
     """
     Show detailed information about a specific food item.
     """
+    # The item_name is automatically URL-decoded by the converter
     item = data[data['name'].str.lower() == item_name.lower()].to_dict(orient='records')
+    
     if item:
         return render_template('result.html', item=item[0])  # Pass the first match
     
