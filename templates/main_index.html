@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precised Food</title>
+
+    <!-- External Stylesheets and Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            width: 100%;
+        }
+
+        header .navbar-brand {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .hero {
+            background-color: #f5f5f5;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .features {
+            background-color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            display: inline-block;
+            width: 30%;
+            margin: 0 1.5%;
+            padding: 30px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        .feature img {
+            width: 90px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #e6edff;
+            padding: 50px 0;
+        }
+
+        footer a {
+            color: #e6edff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .logo_item {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--blue-color);
+}
+
+.logo_item img {
+    width: 30px;
+    height: 30px;
+}
+
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .feature {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#"> <a class="navbar-brand" href="#">
+                    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" style="width: 30px; height: 30px; margin-right: 10px;">
+                   Precised Food</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('food_info_home') }}">Food Info</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('donate') }}">Donate</a></li>
+                       <!-- <li class="nav-item"><a class="nav-link" href="#advanced">Advanced</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Welcome to the Nutrition Web</h1>
+            <p>Your journey to optimal health starts here.</p>
+            <a href="{{ url_for('food_info_home') }}" class="btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <div class="features">
+        <div class="container">
+            <h2>Why Choose Us?</h2>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='images/r.png') }}" alt="Personalized Nutrition">
+                <h3>Personalized Nutrition</h3>
+                <p>Receive custom-tailored nutrition plans based on your goals and dietary needs.</p>
+            </div>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='images/e1.png') }}" alt="Expert Guidance">
+                <h3>Expert Guidance</h3>
+                <p>Access advice from certified nutritionists and dietitians to make informed choices.</p>
+            </div>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='images/r1.png') }}" alt="Recipe Library">
+                <h3>Recipe Library</h3>
+                <p>Explore a vast collection of nutritious recipes for every meal and occasion.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4>Precised Food</h4>
+                    <p>Address: 3, Bollikunta, Warangal, Telangana 506002</p>
+                    <p>Contact: <a href="tel:+9198659****59">+91 98659****59</a></p>
+                    <p>Email: <a href="mailto:precidefood@mail.com">precidefood@mail.com</a></p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Important Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="{{ url_for('food_info_home') }}">Food Info</a></li>
+                        <li><a href="{{ url_for('donate') }}">Donate</a></li>
+                     <!--   <li><a href="#advanced">Advanced</a></li> -->
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-center mt-4">&copy; 2023 Precised Food | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

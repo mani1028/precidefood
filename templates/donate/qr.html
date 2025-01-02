@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donate via UPI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='donate/css/qr.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Donate via UPI</h1>
+        <p>Scan the QR code or use the UPI ID below to make a donation:</p>
+        
+        <!-- Replace with your actual UPI ID -->
+        <p class="upi-id">UPI ID: mani1280@ybl</p>
+        
+        <!-- Replace with your actual QR code image URL -->
+        <img class="qr-code" src="{{ url_for('static', filename='donate/qr.png') }}" alt="UPI QR Code">
+        
+        <p class="thank-you">Thank you for your contribution!</p>
+    </div>
+</body>
+</html>
