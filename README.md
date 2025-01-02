@@ -4,7 +4,7 @@ A Python-based web application built with Flask that provides detailed nutrition
 
 ## Live Demo
 
-Check out the live demo here: [Live Demo](https://nutrition-explorer.vercel.app/)
+Check out the live demo here: [Live Demo](https://precidefood.vercel.app/)
 
 ## Features
 
