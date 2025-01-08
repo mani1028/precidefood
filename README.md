@@ -6,6 +6,9 @@ A Python-based web application built with Flask that provides detailed nutrition
 
 Check out the live demo here: [Live Demo](https://precidefood.vercel.app/)
 
+![image](https://github.com/user-attachments/assets/93beeb98-1b39-4ec8-a102-88b03cc8f9a4)
+
+
 ## Features
 
 - Search for food items to get detailed nutritional information.
